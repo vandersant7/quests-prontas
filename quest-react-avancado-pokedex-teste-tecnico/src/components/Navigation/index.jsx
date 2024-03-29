@@ -2,10 +2,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Header } from './style'
 import { useContext } from 'react'
 import { PokemonContext } from '../../context/PokemonContext'
+import { ThemeTogglerButton } from '../ThemeTogglerButton/ThemeTogglerButton'
 
 export const Navigation = () => {
 
-    const { valueSearch, onInputChange, onResetForm } = useContext(PokemonContext)
+    const { valueSearch, onInputChange, onResetForm, theme } = useContext(PokemonContext)
 
     const navigate = useNavigate()
 
@@ -36,7 +37,7 @@ export const Navigation = () => {
               d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
             />
           </svg>
-          <input
+          <input style={{backgroundColor: theme.cardImg.background}}
             type="search"
             name="valueSearch"
             id=""
@@ -47,6 +48,10 @@ export const Navigation = () => {
         </div>
         <button className='btn-search'>Buscar</button>
       </form>
+      <div className='container-dark-mode'>
+      <span>Modo escuro</span>
+      <ThemeTogglerButton />
+      </div>
     </Header>
   )
 }

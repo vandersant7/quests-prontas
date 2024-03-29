@@ -3,17 +3,17 @@ import styled from 'styled-components'
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 40px 0;
 
   .logo img {
     width: 150px;
+    margin: 1.25rem;
   }
 
-  form {
+    form {
     display: flex;
     align-items: center;
-
     gap: .9375rem;
   }
 
@@ -28,7 +28,6 @@ export const Header = styled.header`
   }
 
   .form-group input {
-    /* padding: 15px 30px; */
     font-family: inherit;
     width: 300px;
     border: none;
@@ -59,4 +58,11 @@ export const Header = styled.header`
     background-color: var(--color-primary-hover);
     color: #000;
   }
+
+  .container-dark-mode {
+    margin: .625rem;
+    display: flex;
+    align-items: center;
+    gap: .625rem;
+  } 
 `

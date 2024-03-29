@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { PokemonContext } from './PokemonContext'
 import { useForm } from '../hook/useForm'
+import { themes } from '../globalStyles/theme'
 
 export const PokemonProvider = ({ children }) => {
   const [allPokemons, setAllPokemons] = useState([])
@@ -14,6 +15,9 @@ export const PokemonProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
   const [active, setActive] = useState(false)
 
+  
+  const [ theme, setTheme ] = useState(themes.light)
+  
   const getAllPokemons = async () => {
     const limit = 10
     const totalPokemons = 151
@@ -29,6 +33,7 @@ export const PokemonProvider = ({ children }) => {
     })
 
     const results = await Promise.all(promises)
+
 
     if (offset < totalPokemons - limit) {
       setAllPokemons([...allPokemons, ...results])
@@ -108,24 +113,28 @@ export const PokemonProvider = ({ children }) => {
     setTypeSelected({
       ...typeSelected,
       [e.target.name]: e.target.checked,
-    })
-
+    });
+  
     if (e.target.checked) {
-      const filteredResults = globalPokemons.filter((pokemon) =>
+      const resultsFiltered = globalPokemons.filter((pokemon) =>
         pokemon.types.map((type) => type.type.name).includes(e.target.name)
-      )
-      setfilteredPokemons([...filteredPokemons, ...filteredResults])
+      );
+      setfilteredPokemons([...filteredPokemons, ...resultsFiltered]);
     } else {
-      const filteredResults = filteredResults.filter((pokemon) =>
-        pokemon.types.map((type) => type.type.name).includes(e.target.name)
-      )
-      setfilteredPokemons([...filteredResults])
+      const removeResultsUnchecked = filteredPokemons.filter(
+        (pokemon) => !pokemon.types.map((type) => type.type.name).includes(e.target.name)
+      );
+      setfilteredPokemons(removeResultsUnchecked);
     }
-  }
+  };
+
+  
 
   return (
     <PokemonContext.Provider
       value={{
+        theme,
+        setTheme,
         valueSearch,
         onInputChange,
         onResetForm,

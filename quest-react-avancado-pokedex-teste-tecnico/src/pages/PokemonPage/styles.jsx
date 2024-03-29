@@ -1,10 +1,17 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
+  padding: 1rem;
+
+      .header-main-pokemon {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  padding: 3rem;
 
   .card-img img {
     width: 100%;
@@ -36,6 +43,14 @@ export const Main = styled.main`
     padding: 0.3125rem 1.25rem;
     border-radius: 0.3125rem;
     color: #fff;
+  }
+
+  .list-abilities h2 {
+    padding: .625rem;
+  }
+
+  .list-abilities span {
+    font-weight: 700;
   }
 
 .water {
@@ -114,29 +129,27 @@ export const Main = styled.main`
     margin-top: 20px;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
 
     position: relative;
   }
 
   .number-pokemon {
-    position: absolute;
-    top: -130px;
-    left: 0;
-
-    font-size: 200px;
+    font-size: 100px;
     font-weight: 700;
     color: var(--color-primary-hover);
   }
 
   .container-img-pokemon {
-    order: 2;
-    flex: 1;
+    display: flex;
+    justify-content: center;
     padding: 25px 25px 25px 0;
     height: 400px;
   }
 
   .container-img-pokemon img {
+    max-width: 400px;
+    height: auto;
     height: 100%;
     width: 100%;
   }
@@ -144,19 +157,16 @@ export const Main = styled.main`
   .container-info-pokemon {
     display: flex;
     flex-direction: column;
-
-    order: 1;
-    flex: 1;
   }
 
   .container-info-pokemon h1 {
-    text-align: right;
+    text-align: center;
     font-size: 60px;
   }
 
   .info-pokemon {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
     margin-top: 20px;
   }
@@ -175,8 +185,8 @@ export const Main = styled.main`
   /* Stats */
   .container-stats {
     display: flex;
+    flex-direction: column;
     gap: 50px;
-    align-items: center;
   }
 
   .stats {

@@ -1,14 +1,8 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
-  .card-pokemon {
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
   .card-img {
     background-color: #f2f2f2;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,8 +11,9 @@ export const Card = styled.div`
   }
 
   .card-img img {
-    width: 100%;
-    height: 100%;
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
   }
 
   .card-info {
@@ -46,6 +41,7 @@ export const Card = styled.div`
     padding: 0.3125rem 1.25rem;
     border-radius: 0.3125rem;
     color: #fff;
+    font-weight: 500;
   }
 
   .water {

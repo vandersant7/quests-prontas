@@ -5,7 +5,7 @@ import { PokemonContext } from "../../context/PokemonContext"
 import { Loader } from "../Loader"
 
 export const PokemonList = () => {
-	const { allPokemons, loading, filteredPokemons } = useContext(PokemonContext)
+	const { allPokemons, loading, filteredPokemons, theme } = useContext(PokemonContext)
 
     return(
 		
@@ -13,7 +13,7 @@ export const PokemonList = () => {
 			{loading ? (
 				<Loader />
 			) : (
-				<div className='card-list-pokemon container'>
+				<div className='card-list-pokemon container' style={{color: theme.color, backgroundColor: theme.background }}>
 					{filteredPokemons.length ? (
 						<>
 							{filteredPokemons.map(pokemon => (

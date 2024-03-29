@@ -10,14 +10,43 @@ export const PokemonPage = () => {
 
     const [loading, setLoading] = useState(true)
     const [pokemon, setPokemon] = useState({})
+	const [ability, setAbility] = useState([])
 
     const { id } = useParams()
 
+	const abilities = async id => {
+		const data = await getPokemonById(id)
+		const results = await data.abilities.map( async (ability) => {
+			const res = await fetch(ability.ability.url)
+			const data = await res.json()
+			return data
+		})
+		const getPromise = await Promise.all(results)
+
+		const getAbilities = await Promise.all(getPromise)
+
+		const dataAbilities = await getAbilities.map(dataAbility => {
+		const { effect_entries, name } = dataAbility
+		const englishEntry = effect_entries.find(entry => entry.language.name === 'en')
+			return {
+				name,
+				effect_entries: [
+					englishEntry
+				]
+			}
+		})
+		console.log(dataAbilities)
+		return dataAbilities
+	}
+
     const fetchPokemon = async id => {
         const data = await getPokemonById(id)
+		const allAbilities = await abilities(id)
         setPokemon(data)
+		setAbility(allAbilities)
         setLoading(false)
     }
+
 
     useEffect(() => {
         fetchPokemon(id)
@@ -46,6 +75,17 @@ export const PokemonPage = () => {
 									<span key={type.type.name} className={`${type.type.name}`}>
 										{type.type.name}
 									</span>
+								))}
+							</div>
+							<div className="list-abilities">
+								<h2>Habilidades</h2>
+								{ability.map((ability, index) => (
+									<>
+									<span key={index}>{UppercaseLetter(ability.name)}: 
+									</span>
+									<p key={index}>{ability.effect_entries[0].effect}</p>
+									<br />
+									</>
 								))}
 							</div>
 							<div className='info-pokemon'>

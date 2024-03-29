@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
+
 export const GlobalStyles = createGlobalStyle`
 
     :root {
@@ -23,19 +24,19 @@ export const GlobalStyles = createGlobalStyle`
 	--color-fairy: #fdb9e9;
 	--color-shadow: #7b62a3;
 	--color-unknow: #757575;
-	--color-primary: #006d77;
-	--color-primary-hover: #83c5be;
+	--color-primary: #333133;
+	--color-primary-hover: #ccc;
 }
 
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+	font-family: "Poppins", sans-serif;
+}
 
     .container {
-    max-width: 1200px;
     margin: 0 auto;
   }
 
