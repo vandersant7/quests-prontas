@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
+  border: 1px solid #333;
+  border-radius: .3125rem;
+
   .card-img {
     background-color: #f2f2f2;
     display: flex;

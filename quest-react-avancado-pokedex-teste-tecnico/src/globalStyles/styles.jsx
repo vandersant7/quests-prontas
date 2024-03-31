@@ -36,32 +36,11 @@ export const GlobalStyles = createGlobalStyle`
 	font-family: "Poppins", sans-serif;
 }
 
-    .container {
-    margin: 0 auto;
-  }
-
-  .container-btn-load-more{
-	display: flex;
-	justify-content: center;
-
-	margin-bottom: 20px;
-	margin-top: 20px;
+body {
+	margin: 0 auto;
+	max-width: 1200px;
 }
 
-.btn-load-more{
-	border: none;
-	padding: 15px 40px;
-	font-family: inherit;
-	background-color: var(--color-primary);
-	color: #fff;
-	border-radius: 10px;
-	cursor: pointer;
-}
-
-.btn-load-more:hover{
-	background-color: var(--color-primary-hover);
-	color: #000;
-}
 
 .container-filter {
 	    display: flex;

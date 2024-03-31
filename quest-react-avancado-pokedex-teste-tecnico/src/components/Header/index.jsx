@@ -1,10 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { Header } from './style'
+import { Container } from './style'
 import { useContext } from 'react'
 import { PokemonContext } from '../../context/PokemonContext'
 import { ThemeTogglerButton } from '../ThemeTogglerButton/ThemeTogglerButton'
 
-export const Navigation = () => {
+export const Header = () => {
 
     const { valueSearch, onInputChange, onResetForm, theme } = useContext(PokemonContext)
 
@@ -18,10 +18,14 @@ export const Navigation = () => {
     }
   
   return (
-    <Header className="container">
+    <Container className="container">
       <Link to="/" className="logo">
         <img src="/pokeapi.svg" alt="Logo Pokedex" />
       </Link>
+      <div className='container-dark-mode'>
+      <span>Modo escuro</span>
+      <ThemeTogglerButton />
+      </div>
       <form onSubmit={onSearchSubmit}>
         <div className="form-group">
           <svg
@@ -46,12 +50,8 @@ export const Navigation = () => {
             placeholder="Buscar pokemon"
           />
         </div>
-        <button className='btn-search'>Buscar</button>
+        <button className='btn-search'>Ir</button>
       </form>
-      <div className='container-dark-mode'>
-      <span>Modo escuro</span>
-      <ThemeTogglerButton />
-      </div>
-    </Header>
+    </Container>
   )
 }

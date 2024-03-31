@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import { Navigation } from './components/Navigation'
+import { Header } from './components/Header'
 import { useContext } from 'react'
 import { PokemonContext } from './context/PokemonContext'
 
@@ -7,7 +7,7 @@ function App() {
   const { theme } = useContext(PokemonContext)
   return (
     <div style={{backgroundColor: theme.background, color: theme.color}}>
-      <Navigation />
+      <Header />
       <Outlet />
     </div>
   )

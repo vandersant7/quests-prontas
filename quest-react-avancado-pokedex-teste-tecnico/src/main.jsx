@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { GlobalStyles } from './globalStyles/styles.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { SearchPokemon } from './pages/SearchPokemon/index.jsx'
-import { HomePage } from './pages/HomePage.jsx'
+import { HomePage } from './pages/Home'
 import { PokemonPage } from './pages/PokemonPage/index.jsx'
 import { PokemonProvider } from './context/PokemonProvider.jsx'
 

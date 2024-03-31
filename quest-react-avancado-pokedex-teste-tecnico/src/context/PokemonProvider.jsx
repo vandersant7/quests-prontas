@@ -13,7 +13,6 @@ export const PokemonProvider = ({ children }) => {
   })
 
   const [loading, setLoading] = useState(true)
-  const [active, setActive] = useState(false)
 
   
   const [ theme, setTheme ] = useState(themes.light)
@@ -58,6 +57,8 @@ export const PokemonProvider = ({ children }) => {
 
     const results = await Promise.all(promises)
 
+    console.log(results)
+
     setGlobalPokemons(results)
     setLoading(false)
   }
@@ -85,6 +86,7 @@ export const PokemonProvider = ({ children }) => {
   }
 
   const [typeSelected, setTypeSelected] = useState({
+    all: false,
     grass: false,
     normal: false,
     fighting: false,
@@ -109,22 +111,18 @@ export const PokemonProvider = ({ children }) => {
 
   const [filteredPokemons, setfilteredPokemons] = useState([])
 
-  const handleCheckbox = (e) => {
-    setTypeSelected({
-      ...typeSelected,
-      [e.target.name]: e.target.checked,
-    });
+  const handleSelect = (e) => {
+   const selectedType = e.target.value
+   setTypeSelected({...typeSelected,
+  [selectedType]: true})
   
-    if (e.target.checked) {
+    if (selectedType !== '') {
       const resultsFiltered = globalPokemons.filter((pokemon) =>
-        pokemon.types.map((type) => type.type.name).includes(e.target.name)
+        pokemon.types.map((type) => type.type.name).includes(selectedType)
       );
-      setfilteredPokemons([...filteredPokemons, ...resultsFiltered]);
+      setfilteredPokemons(resultsFiltered);
     } else {
-      const removeResultsUnchecked = filteredPokemons.filter(
-        (pokemon) => !pokemon.types.map((type) => type.type.name).includes(e.target.name)
-      );
-      setfilteredPokemons(removeResultsUnchecked);
+      setfilteredPokemons([])
     }
   };
 
@@ -144,9 +142,8 @@ export const PokemonProvider = ({ children }) => {
         onClickLoadMore,
         loading,
         setLoading,
-        active,
-        setActive,
-        handleCheckbox,
+        handleSelect,
+        setTypeSelected,
         filteredPokemons
       }}>
       {children}

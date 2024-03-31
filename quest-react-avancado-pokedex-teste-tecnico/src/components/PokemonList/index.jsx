@@ -3,17 +3,21 @@ import { Container } from "./style"
 import { CardPokemon } from "../CardPokemon"
 import { PokemonContext } from "../../context/PokemonContext"
 import { Loader } from "../Loader"
+import { FilterBar } from "../FilterBar"
 
 export const PokemonList = () => {
 	const { allPokemons, loading, filteredPokemons, theme } = useContext(PokemonContext)
 
     return(
-		
+
         <Container>
 			{loading ? (
 				<Loader />
 			) : (
-				<div className='card-list-pokemon container' style={{color: theme.color, backgroundColor: theme.background }}>
+				<>
+				<FilterBar />
+				
+				<div className='card-list-pokemon container' style={{color: theme.color, background: theme.background }}>
 					{filteredPokemons.length ? (
 						<>
 							{filteredPokemons.map(pokemon => (
@@ -28,6 +32,7 @@ export const PokemonList = () => {
 						</>
 					)}
 				</div>
+				</>
 			)}
 			
 		</Container>

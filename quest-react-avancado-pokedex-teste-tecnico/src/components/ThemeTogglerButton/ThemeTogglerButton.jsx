@@ -6,9 +6,17 @@ import { themes } from '../../globalStyles/theme'
 export const ThemeTogglerButton = () => {
   const { theme, setTheme } = useContext(PokemonContext)
 
+  
+   
+
   const handleToggleTheme = () => {
+    
     setTheme(theme === themes.light ? themes.dark : themes.light)
+    
   }
+
+
+
 
   return <ReactSwitch 
   onChange={handleToggleTheme} 
