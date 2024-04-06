@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import { PokemonContext } from '../../context/PokemonContext';
 import { Label, Select } from './style';
+import { ThemeContext } from '../../context/ThemeContext';
 
 export const FilterBar = () => {
   const { handleSelect, typeSelected } = useContext(PokemonContext);
+  const { theme } = useContext(ThemeContext)
 
   return (
     <div>
-      <Label htmlFor='typeSelect'>Select Type: </Label>
+      <Label htmlFor='typeSelect' style={{color: theme.colors.color}}>Select Type: </Label>
       <Select id="typeSelect" value={typeSelected} onChange={handleSelect}>
         <option value=''>None</option>
         <option value='grass'>Grass</option>

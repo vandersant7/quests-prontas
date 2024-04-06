@@ -12,7 +12,7 @@ export const Label = styled.label`
 
 export const Select = styled.select`
 		flex: 1;
-		max-width: 16.75rem;
+		width: 160px;
 		padding: .3125rem;
 		background-color: var(--color-primary);
 		color: #fff;
@@ -28,5 +28,8 @@ export const Select = styled.select`
 	&&:hover {
     background-color: var(--color-primary-hover);
     color: #000;
-
+	
+	option {
+		padding: .3125rem;
+	}
   }`

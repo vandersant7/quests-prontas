@@ -126,10 +126,10 @@ export const Main = styled.main`
     display: flex;
     
     @media (max-width: 768px) {
+      flex: 1;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      flex-wrap: wrap;
     }
 
   }
@@ -150,7 +150,7 @@ export const Main = styled.main`
   }
 
   .container-img-pokemon img {
-    max-width: 400px;
+    flex: 1;
     height: auto;
     height: 100%;
     width: 100%;
@@ -158,19 +158,11 @@ export const Main = styled.main`
     justify-content: center;
   }
 
-  .container-info-pokemon {
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-
-    @media (max-width: 768px) {
+  @media (max-width: 320px) {
     .container-info-pokemon {
-      width: 80vw;
-      max-width: 400px;
-      padding: 1rem;
-      flex-direction: row;
+    max-width: 300px;
+    padding: 1rem;
   }
-}
   }
 
   .container-info-pokemon h1 {
@@ -183,7 +175,6 @@ export const Main = styled.main`
   .info-pokemon {
     display: flex;
     flex-direction: column;
-
     margin-top: 20px;
   }
 
@@ -198,7 +189,6 @@ export const Main = styled.main`
     font-size: 20px;
   }
 
-  /* Stats */
   .container-stats {
     text-align: center;
     padding: 2rem;

@@ -12,7 +12,7 @@ Sun = Moon = styled.svg`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    top: 1rem;
+    top: 2rem;
     right: 2rem;
   }
 

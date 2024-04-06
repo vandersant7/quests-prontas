@@ -1,32 +1,37 @@
-import { createContext, useState} from "react";
+import { createContext, useState, useEffect } from 'react'
 import { lightTheme, darkTheme } from '../globalStyles/theme'
 
 export const ThemeContext = createContext(null)
 
 export const ThemeProvider = ({ children }) => {
-    const [selectTheme, setSelectTheme] = useState(localStorage.getItem('theme' || lightTheme))
+  const [theme, setTheme] = useState(lightTheme)
+  const [changeButton, setChangeButton] = useState('light')
 
-    const updateTheme = theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'
-    setSelectTheme(updateTheme)
-    localStorage.setItem('theme', updateTheme)
-
-    const [ theme, setTheme ] = useState(lightTheme)
-    const [ changeButton, setChangeButton ] = useState('light')
-
-    const toggleTheme = () => {
-      if (theme === lightTheme) {
-        setTheme(darkTheme);
-        setChangeButton('dark')
-      } else {
-        setTheme(lightTheme);
-        setChangeButton('light')
-      }
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme) {
+      setTheme(savedTheme === 'dark' ? darkTheme : lightTheme)
+      setChangeButton(savedTheme)
     }
-    
-    
-    return (
-        <ThemeContext.Provider value={{theme, changeButton, toggleTheme}}>
-            { children }
-        </ThemeContext.Provider>
-    )
+  },[])
+
+  const toggleTheme = () => {
+    const newTheme = theme === lightTheme ? 'dark' : 'light'
+    localStorage.setItem('theme', newTheme)
+    setTheme(newTheme === 'dark' ? darkTheme : lightTheme)
+    setChangeButton(newTheme)
+    // if (theme === lightTheme) {
+    //   setTheme(darkTheme)
+    //   setChangeButton('dark')
+    // } else {
+    //   setTheme(lightTheme)
+    //   setChangeButton('light')
+    // }
+  }
+
+  return (
+    <ThemeContext.Provider value={{ theme, changeButton, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  )
 }

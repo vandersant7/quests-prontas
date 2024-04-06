@@ -8,13 +8,11 @@ export const Container = styled.header`
   flex-direction: column;
   padding: 40px 0;
 
-  max-width: 1200px;
-
 
   a {
     margin-bottom: .9375rem;
     padding: 2%;
-    width: 350px;
+    max-width: 350px;
     display: flex;
     justify-content: center;
   }
