@@ -1,17 +1,12 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Main = styled.main`
   padding: 1rem;
 
-      .header-main-pokemon {
+.header-main-pokemon {
       flex-direction: row;
       align-items: center;
     }
-  }
-
-  display: flex;
-  flex-direction: column;
-  padding: 3rem;
 
   .card-img img {
     width: 100%;
@@ -127,11 +122,16 @@ export const Main = styled.main`
 
   .header-main-pokemon {
     margin-top: 20px;
-
+    padding: 1.25rem;
     display: flex;
-    flex-direction: column;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
 
-    position: relative;
   }
 
   .number-pokemon {
@@ -142,8 +142,10 @@ export const Main = styled.main`
 
   .container-img-pokemon {
     display: flex;
-    justify-content: center;
-    padding: 25px 25px 25px 0;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 .9375rem;
+    width: 100%;
     height: 400px;
   }
 
@@ -152,16 +154,30 @@ export const Main = styled.main`
     height: auto;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .container-info-pokemon {
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 768px) {
+    .container-info-pokemon {
+      width: 80vw;
+      max-width: 400px;
+      padding: 1rem;
+      flex-direction: row;
+  }
+}
   }
 
   .container-info-pokemon h1 {
-    text-align: center;
-    font-size: 60px;
+    display: flex;
+    padding: .9375rem;
+    justify-content: center;
+    font-size: 50px;
   }
 
   .info-pokemon {
@@ -184,6 +200,8 @@ export const Main = styled.main`
 
   /* Stats */
   .container-stats {
+    text-align: center;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -214,4 +232,4 @@ export const Main = styled.main`
     background-color: var(--color-primary);
     border-radius: 10px;
   }
-`
+`;

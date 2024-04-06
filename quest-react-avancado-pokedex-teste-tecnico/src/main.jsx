@@ -1,39 +1,42 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import { GlobalStyles } from './globalStyles/styles.jsx'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { SearchPokemon } from './pages/SearchPokemon/index.jsx'
-import { HomePage } from './pages/Home'
-import { PokemonPage } from './pages/PokemonPage/index.jsx'
-import { PokemonProvider } from './context/PokemonProvider.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { GlobalStyles } from "./globalStyles/styles.jsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { SearchPokemon } from "./pages/SearchPokemon/index.jsx";
+import { HomePage } from "./pages/Home";
+import { PokemonPage } from "./pages/PokemonPage/index.jsx";
+import { PokemonProvider } from "./context/PokemonProvider.jsx";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <HomePage />,
       },
       {
-        path: 'pokemon/:id',
+        path: "pokemon/:id",
         element: <PokemonPage />,
       },
       {
-        path: 'search',
+        path: "search",
         element: <SearchPokemon />,
       },
     ],
   },
-])
+]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <PokemonProvider>
+    <ThemeProvider>
       <GlobalStyles />
-      <RouterProvider router={router} />
-    </PokemonProvider>
+      <PokemonProvider>
+        <RouterProvider router={router} />
+      </PokemonProvider>
+    </ThemeProvider>
   </React.StrictMode>
-)
+);

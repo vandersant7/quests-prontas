@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { PokemonContext } from '../../context/PokemonContext';
-import { Div } from './style';
+import { Label, Select } from './style';
 
 export const FilterBar = () => {
   const { handleSelect, typeSelected } = useContext(PokemonContext);
 
   return (
-    <Div>
-      <label htmlFor='typeSelect'>Select Type: </label>
-      <select id="typeSelect" value={typeSelected} onChange={handleSelect}>
+    <div>
+      <Label htmlFor='typeSelect'>Select Type: </Label>
+      <Select id="typeSelect" value={typeSelected} onChange={handleSelect}>
         <option value=''>None</option>
         <option value='grass'>Grass</option>
         <option value='normal'>Normal</option>
@@ -28,7 +28,7 @@ export const FilterBar = () => {
         <option value='fairy'>Fairy</option>
         <option value='unknow'>Unknow</option>
         <option value='shadow'>Shadow</option>
-      </select>
-    </Div>
+      </Select>
+    </div>
   );
 };

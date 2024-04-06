@@ -1,47 +1,32 @@
 import styled from 'styled-components'
 
 export const Div = styled.div`
-	.filters {
 	display: flex;
+	align-items: center;
 	justify-content: center;
-
-	position: fixed;
-	top: 0;
-	left: -300px;
-	width: 250px;
-
-	color: #555;
-	background-color: #f2f2f2;
-	height: 100%;
-	padding-top: 140px;
-	transition: all 0.3s linear;
-}
-
-.filters.active {
-	left: 0;
-}
-
-.filter-by-type {
-	display: flex;
-	flex-direction: column;
-
-	gap: 20px;
-}
-
-.filter-by-type span {
-	font-weight: 700;
-	font-size: 22px;
-}
-
-.group-type {
-	display: flex;
-	gap: 10px;
-
-	margin-left: 15px;
-}
-
-.group-type label {
-	cursor: pointer;
-}
-
 `
+
+export const Label = styled.label`
+	color: #121212;
+`
+
+export const Select = styled.select`
+		flex: 1;
+		max-width: 16.75rem;
+		padding: .3125rem;
+		background-color: var(--color-primary);
+		color: #fff;
+		font-size: 1rem;
+		line-height: 1;
+		border: 0;
+		border-radius: 15px;
+		height: 2.125rem;
+		-webkit-appearance: none;
+		outline: none;
+		cursor: pointer;
+	
+	&&:hover {
+    background-color: var(--color-primary-hover);
+    color: #000;
+
+  }`

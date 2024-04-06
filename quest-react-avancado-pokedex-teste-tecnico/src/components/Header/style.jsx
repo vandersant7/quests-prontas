@@ -29,25 +29,29 @@ export const Container = styled.header`
     form {
     display: flex;
     align-items: center;
-    gap: .9375rem;
+    justify-content: center;
+    gap: .625rem;
+    padding: .8rem;
 
-    @media (max-width: 320px) {
-      flex-direction: column;
-    }
+    
   }
 
   .form-group {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: .625rem;
     border: 1px solid #555;
     padding: .9375rem 1.25rem;
     border-radius: 1.5625rem;
+
+    
   }
 
   .form-group input {
+    flex: 1;
     font-family: inherit;
-    max-width: 100%;
+    width: 100%;
     border: none;
     outline: none;
     font-size: .9375rem;
@@ -80,12 +84,9 @@ export const Container = styled.header`
   }
 
   .container-dark-mode {
-    position: absolute;
-    top: 1.25rem;
-    right: 2.25rem;
-    margin: .625rem;
     display: flex;
     align-items: center;
     gap: .625rem;
+
 }
 `

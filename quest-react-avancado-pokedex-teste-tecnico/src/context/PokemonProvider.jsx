@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { PokemonContext } from './PokemonContext'
 import { useForm } from '../hook/useForm'
-import { themes } from '../globalStyles/theme'
 
 export const PokemonProvider = ({ children }) => {
   const [allPokemons, setAllPokemons] = useState([])
@@ -14,8 +13,6 @@ export const PokemonProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(true)
 
-  
-  const [ theme, setTheme ] = useState(themes.light)
   
   const getAllPokemons = async () => {
     const limit = 10
@@ -56,8 +53,6 @@ export const PokemonProvider = ({ children }) => {
     })
 
     const results = await Promise.all(promises)
-
-    console.log(results)
 
     setGlobalPokemons(results)
     setLoading(false)
@@ -131,8 +126,6 @@ export const PokemonProvider = ({ children }) => {
   return (
     <PokemonContext.Provider
       value={{
-        theme,
-        setTheme,
         valueSearch,
         onInputChange,
         onResetForm,

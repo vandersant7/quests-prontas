@@ -38,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
 
 body {
 	margin: 0 auto;
-	max-width: 1200px;
+	transition: all .5s linear;
 }
 
 
