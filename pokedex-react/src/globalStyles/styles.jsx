@@ -41,6 +41,13 @@ body {
 	transition: all .5s linear;
 }
 
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 
 .container-filter {
 	    display: flex;

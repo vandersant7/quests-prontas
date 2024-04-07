@@ -19,7 +19,7 @@ export const PokemonList = () => {
 				<>
 				<FilterBar />
 				
-				<div className='card-list-pokemon container' style={{color: theme.colors.color, background: theme.colors.background }}>
+				<div className='card-list-pokemon' style={{color: theme.colors.color, background: theme.colors.background }}>
 					{filteredPokemons.length ? (
 						<>
 							{filteredPokemons.map(pokemon => (

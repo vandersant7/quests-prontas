@@ -4,6 +4,7 @@ export const Div = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	max-width: 300px;
 `
 
 export const Label = styled.label`
@@ -12,7 +13,7 @@ export const Label = styled.label`
 
 export const Select = styled.select`
 		flex: 1;
-		width: 160px;
+		width: 150px;
 		padding: .3125rem;
 		background-color: var(--color-primary);
 		color: #fff;

@@ -19,7 +19,17 @@ Esse projeto é uma SPA (Single Page Application), que em português pode ser tr
 
 - Por fim, foi implementada a função de **pesquisa (search)** de Pokémon por nome.
 
+## Screenshots
 
+![Laptop Screenshot animado](img src="/public/laptop.gif">)
+
+![Mobile Screenshot animado](img src="/public/mobile.gif">)
+
+![Laptop Screenshot](img src="/public/laptop.png">)
+
+![Mobile Screenshot](img src="/public/mobile.png">)
+
+![Tablet Screenshot](img src="/public/tablet.png">)
 
 ## Rodando localmente
 

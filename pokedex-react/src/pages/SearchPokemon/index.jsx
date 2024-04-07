@@ -22,7 +22,7 @@ export const SearchPokemon = () => {
             <p>{filteredPokemons.length} resultados encontrados</p>
          )}
             
-            <Search className="container">
+            <Search>
                 {filteredPokemons.map(pokemon => <CardPokemon pokemon={pokemon} key={pokemon.id} />)}
             </Search>
         </div>

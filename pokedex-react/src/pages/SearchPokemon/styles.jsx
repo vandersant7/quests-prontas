@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Search = styled.div`
-    display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	margin: 0 auto;
+    display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 2rem;
 	gap: 20px;
 `
